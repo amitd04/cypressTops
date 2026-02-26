@@ -1,0 +1,34 @@
+{
+  "name": "amazoncypress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "rimraf \"cypress/reports\" && cypress run",
+    "report:merge": "mochawesome-merge \"cypress/reports/**/*.json\" -o cypress/reports/merged-report.json",
+    "report:generate": "marge cypress/reports/merged-report.json --reportDir cypress/reports --reportPageTitle \"Cypress Test Report\" --reportFilename index",
+    "report": "npm run report:merge && npm run report:generate && start cypress/reports/index.html",
+    "test:all": "npm run cypress:run && npm run report",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@eslint/css": "^0.8.1",
+    "@eslint/js": "^9.28.0",
+    "@eslint/json": "^0.12.0",
+    "@eslint/markdown": "^6.4.0",
+    "cypress": "^14.5.4",
+    "cypress-xpath": "^2.0.1",
+    "dotenv": "^17.3.1",
+    "eslint": "^9.28.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.2.0",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2",
+    "rimraf": "^6.1.3"
+  }
+}
